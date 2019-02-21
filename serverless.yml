@@ -12,6 +12,7 @@ functions:
     memorySize: 128
     environment:
       discordWebhookToken: ${ssm:/lambda/mangadex-notifier/DiscordWebhookToken~true}
+      rssFeedUUID: "xre5ZKW7GvT98ykAQNDUYhHmcqdFXEwz"
     timeout: 2
     events:
       - schedule: cron(*/5 * * * ? *)
