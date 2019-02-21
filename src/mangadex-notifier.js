@@ -17,7 +17,7 @@ module.exports.index = async (event, context, cb) => {
     while (nowDate - nextDate <= 300000){ 
         // Post a record to Discord
         const discordNotifBody = {
-            content: 'MangaDex New Release',
+            content: `New Release: ${items[i].title}`,
             embeds: [ {
                 title: items[i].title,
                 color: 65280,
@@ -28,12 +28,11 @@ module.exports.index = async (event, context, cb) => {
             } ]
         }
           
-        const discordNotif = await fetch(DiscordWebhookUrl, {
+        await fetch(DiscordWebhookUrl, {
             method: 'post',
             body:    JSON.stringify(discordNotifBody),
             headers: { 'Content-Type': 'application/json' }
         })
-        console.log(discordNotif);
 
         i++; nextDate = new Date(items[i].isoDate);
     }
