@@ -1,0 +1,18 @@
+service: mangadex-notifier
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  
+
+functions:
+  mangadex-notifier:
+    handler: src/mangadex-notifier.index
+    description: "Notify discord when new manga release"
+    memorySize: 256
+    environment:
+      discordWebhookToken: ${ssm:/lambda/mangadex-notifier/DiscordWebhookToken~true}
+    timeout: 10
+    events:
+      - schedule: cron(*/5 * * * ? *)
+
