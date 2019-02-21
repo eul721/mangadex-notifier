@@ -9,10 +9,10 @@ functions:
   mangadex-notifier:
     handler: src/mangadex-notifier.index
     description: "Notify discord when new manga release"
-    memorySize: 256
+    memorySize: 128
     environment:
       discordWebhookToken: ${ssm:/lambda/mangadex-notifier/DiscordWebhookToken~true}
-    timeout: 10
+    timeout: 2
     events:
       - schedule: cron(*/5 * * * ? *)
 
