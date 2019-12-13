@@ -2,7 +2,7 @@ service: mangadex-notifier
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs12.x
   
 
 functions:
@@ -13,7 +13,7 @@ functions:
     environment:
       discordWebhookToken: ${ssm:/lambda/mangadex-notifier/DiscordWebhookToken~true}
       rssFeedUUID: "xre5ZKW7GvT98ykAQNDUYhHmcqdFXEwz"
-    timeout: 10
+    timeout: 60
     events:
       - schedule: cron(*/5 * * * ? *)
 
