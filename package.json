@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "async-retry": "^1.2.3",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^2.6.1",
     "rss-parser": "^3.6.2"
   }
 }
